@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/study
+    username: root
+    password: Tiger
+    driverClassName : com.mysql.jdbc.Driver
+    poolName : hikariCP
+    maximumPoolSize : 25 
+    minimumIdle : 3
+    connectionTimeout : 30000
+    idleTimeout : 30000
+    pool-prepared-statements : true
+    max-open-prepared-statements : 250
+  jooq:
+    sql-dialect: MYSQL
