@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: gateway
+Implementation-Title: soso-site
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Mryinying
 Implementation-Vendor-Id: com.it

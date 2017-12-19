@@ -1,4 +1,4 @@
-package com.it.controllers;
+package com.it.controller;
 
 
 import javax.servlet.http.HttpServletResponse;
