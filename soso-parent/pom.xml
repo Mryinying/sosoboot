@@ -10,20 +10,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
-  <distributionManagement>
-        <repository>
-            <id>internal-releases</id>
-            <name>releases</name>
-            <url>http://192.168.60.250/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>internal-snapshots</id>
-            <name>snapshots</name>
-            <url>http://192.168.60.250/nexus/content/repositories/snapshots</url>
-            <uniqueVersion>true</uniqueVersion>
-        </snapshotRepository>
-    </distributionManagement>
-    
     <properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -52,40 +38,40 @@
 	            </exclusions>
 	    	</dependency>
 	    	<dependency>
-	                <groupId>com.101tec</groupId>
-	                <artifactId>zkclient</artifactId>
-	                <version>${zkclient.version}</version>
-	                <exclusions>
-	                    <exclusion>
-	                        <groupId>org.slf4j</groupId>
-	                        <artifactId>slf4j-log4j12</artifactId>
-	                    </exclusion>
-	                    <exclusion>
-	                        <groupId>log4j</groupId>
-	                        <artifactId>log4j</artifactId>
-	                    </exclusion>
-	                </exclusions>
-	            </dependency>
-	            <dependency>
-	                <groupId>com.google.guava</groupId>
-	                <artifactId>guava</artifactId>
-	                <version>${guava.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>com.google.code.findbugs</groupId>
-	                <artifactId>jsr305</artifactId>
-	                <version>${jsr305.version}</version>
-	            </dependency>
-	            <dependency>
-	                <groupId>org.apache.curator</groupId>
-	                <artifactId>curator-recipes</artifactId>
-	                <version>${curator.version}</version>
-	            </dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
 	    </dependencies>
 	</dependencyManagement>
 	<build>
 	<defaultGoal>package</defaultGoal>
-   <plugins>
+    <plugins>
        <plugin>
            <artifactId>maven-surefire-plugin</artifactId>
            <configuration>
@@ -114,7 +100,7 @@
                </compilerArgs>
            </configuration>
        </plugin>
-       </plugins>
+    </plugins>
     </build> 
     <modules>
     	<module>soso-api</module>
