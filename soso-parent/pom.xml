@@ -119,7 +119,7 @@
            </configuration>
        </plugin>
     </plugins>
-    </build> 
+    </build>
     <modules>
     	<module>soso-api</module>
     	<module>soso-service</module>

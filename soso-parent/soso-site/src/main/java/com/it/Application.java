@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.http.converter.HttpMessageConverter;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -17,6 +18,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
  *
  */
 @SpringBootApplication
+@ImportResource("classpath:dubbo-consumer.xml")
 public class Application{
 	//第一种使用第三方json解析框架
 	//重写

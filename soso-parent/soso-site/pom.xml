@@ -7,16 +7,13 @@
   </parent>
   <artifactId>soso-site</artifactId>
   <dependencies>
+  
 	  <dependency>
 	  	<groupId>com.it</groupId>
 	    <artifactId>soso-api</artifactId>
 	    <version>0.0.1-SNAPSHOT</version>
 	  </dependency>
-	  <dependency>
-	  	<groupId>com.it</groupId>
-	    <artifactId>soso-service</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
-	  </dependency>
+	  
 		<dependency>
            <groupId>org.apache.poi</groupId>
            <artifactId>poi-ooxml</artifactId>
@@ -27,6 +24,7 @@
            <groupId>com.alibaba</groupId>
            <artifactId>dubbo</artifactId>
        </dependency>
+       
        <dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -92,12 +90,12 @@
 	</dependency>
   </dependencies>
   
-  	<build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	        </plugin>
+	    </plugins>
+	</build>
 </project>
