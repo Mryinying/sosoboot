@@ -1,0 +1,206 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.it</groupId>
+  <artifactId>spring-boots</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>spring-boots</name>
+  <url>http://maven.apache.org</url>
+  
+  	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<!--防止maven改动IDE的language level -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<!--数据库迁移所用的参数 -->
+		<db.driver>com.mysql.jdbc.Driver</db.driver>
+		<db.url>jdbc:mysql://localhost:3306</db.url>
+		<db.username>root</db.username>
+		<db.password>Tiger</db.password>
+		<db.schema>test</db.schema>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!--JDBC连接池 -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- velocity -->
+		<dependency>    
+		    <groupId>org.springframework.boot</groupId>  
+		    <artifactId>spring-boot-starter-velocity</artifactId>  
+		</dependency>  
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	     <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+	        <optional>true</optional>
+		</dependency>
+		<dependency>
+		      <groupId>junit</groupId>
+		      <artifactId>junit</artifactId>
+		      <scope>test</scope>
+		    </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.13</version>
+		</dependency>
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    <!--数据库schema代码生成器 -->
+		<dependency>
+		    <groupId>org.jooq</groupId>
+		    <artifactId>jooq-codegen</artifactId>
+		</dependency>
+	     <dependency>
+	        <groupId>mysql</groupId>
+	        <artifactId>mysql-connector-java</artifactId>
+	    </dependency>
+	     <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+	        <optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<!-- 取消引入tomcat jdbc -->
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<configuration>
+	                <fork>true</fork>
+	        </configuration>
+	        <!-- springloaded 热部署 hot deploy-->
+			<dependencies>
+				
+				<dependency>
+					<groupId>org.springframework</groupId>
+					<artifactId>springloaded</artifactId>
+					<version>1.2.4.RELEASE</version>
+				</dependency>
+			</dependencies>
+			<executions>
+				<execution>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+					<configuration>
+						<classifier>exec</classifier>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+		
+		<!--数据库代码生成的插件 -->
+		<!--数据库代码生成的插件 -->
+		<plugin>
+		    <!-- Specify the maven code generator plugin -->
+		    <groupId>org.jooq</groupId>
+		    <artifactId>jooq-codegen-maven</artifactId>
+		    <!-- The plugin should hook into the generate goal -->
+		    <executions>
+		        <execution>
+		            <goals>
+		                <goal>generate</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		    <configuration>
+		        <!-- JDBC connection parameters -->
+		        <jdbc>
+		            <driver>com.mysql.jdbc.Driver</driver>
+		            <url>${db.url}</url>
+		            <user>${db.username}</user>
+		            <password>${db.password}</password>
+		        </jdbc>
+		        <!-- Generator parameters -->
+		        <generator>
+		            <database>
+		                <name>org.jooq.util.mysql.MySQLDatabase</name>
+		                <includes>.*</includes>
+		                <inputSchema>${db.schema}</inputSchema>
+		                <unsignedTypes>false</unsignedTypes>
+		                <customTypes>
+                            <customType>
+                                <name>timestamp2DateConverter</name>
+                                <type>java.util.Date</type>
+                                <converter>com.it.jooq.Timestamp2DateConverter</converter>
+                            </customType>
+                            <customType>
+                                <name>byte2IntegerConverter</name>
+                                <type>java.lang.Integer</type>
+                                <converter>com.it.jooq.Byte2IntegerConverter</converter>
+                            </customType>
+                         </customTypes>
+                         <forcedTypes>
+                             <forcedType>
+                                 <name>timestamp2DateConverter</name>
+                                 <types>DATETIME|TIMESTAMP</types>
+                             </forcedType>
+                             <forcedType>
+                                 <name>byte2IntegerConverter</name>
+                                 <types>TINYINT</types>
+                             </forcedType>
+                         </forcedTypes>
+		            </database>
+		            <generate>
+                            <fluentSetters>true</fluentSetters>
+                            <pojos>true</pojos>
+                            <pojosToString>true</pojosToString>
+                            <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
+                            <daos>true</daos>
+                            <springAnnotations>true</springAnnotations>
+                        </generate>
+		            <target>
+		                <packageName>com.it.jooq.generated</packageName>
+		                <directory>src/main/java</directory>
+		            </target>
+		        </generator>
+		    </configuration>
+		</plugin>
+		</plugins>
+	</build>
+</project>

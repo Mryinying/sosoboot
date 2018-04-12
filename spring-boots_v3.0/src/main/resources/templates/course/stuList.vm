@@ -1,0 +1,37 @@
+#parse("./templates/layout/frame.vm")
+				<div class="content col-lg-9">
+					<table class="table table-bordered table-striped ele-list">
+					  <thead>
+					    <tr>
+				          <th colspan="7">学生信息</th>
+				        </tr>
+				        <tr>
+				          <th>学号</th>
+				          <th>姓名</th>
+				          <th>性别</th>
+				          <th>专业</th>
+				          <th>民族</th>
+				          <th>政治面貌</th>
+				          <th>操作</th>
+				        </tr>
+				      </thead>
+				      <tbody>
+				      	#foreach($data in $!list)
+				        <tr>
+				          <td>$data.id</td>
+				          <td>$data.stuName</td>
+				          <td>$data.stuSex</td>
+				          <td>$data.stuMajor</td>
+				          <td>$data.stuNation</td>
+				          <td>$data.stuPoliticsStatus</td>
+				          <td><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">详情</a></td>
+				        </tr>
+				        #end
+				      </tbody>
+					</table>
+				</div>
+##frame的尾标签
+		     </div>
+		</div>
+	</body>
+</html>

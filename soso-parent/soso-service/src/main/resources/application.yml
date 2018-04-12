@@ -1,5 +1,4 @@
 dubbo:
-  port: 20880
   zookeeper: 192.168.203.130:2181
   
 logging:

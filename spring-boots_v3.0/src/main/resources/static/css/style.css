@@ -1,0 +1,71 @@
+/* header */
+.header-img{
+    background-image: url("../img/top_image.jpg")
+}
+.header-txt{
+    border: 1px #fff solid;
+    background-color:rgb(255, 200, 111);
+    height:30px
+}
+
+.box{
+    background-image: url("../img/bg2.jpg");
+    border: gainsboro solid 1px;
+    background-size:cover;
+}
+
+.menu{
+    border-right: gainsboro solid 1px
+}
+.menu div{
+    margin-top: 20px;
+}
+.nav li{
+    margin: auto 0;
+}
+.nav-0{
+    /* background-image: url("../img/lsg5.gif"); */
+    height: 30px;
+}
+/* content */
+.content{
+    margin-top:50px;
+}
+/* eledent */
+.ele-info{
+	margin-left:50px;
+}
+.ele-info input{
+	width:240px;
+}
+.ele-info select{
+	width:240px;
+}
+.ele-list{
+	margin:0 auto;
+}
+.ele-list tbody tr td{
+	text-align:center;
+	font-size:12px;
+}
+.ele-list tr th{
+	text-align:center;
+	font-size:14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

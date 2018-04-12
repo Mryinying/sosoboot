@@ -7,14 +7,15 @@
 
     <dubbo:application name="soso-service"/>
 
-    <dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper}"/>
+    <dubbo:registry address="zookeeper://192.168.203.130:2181"/>
 
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="dubbo"/>
+	<bean id="userService" class="com.it.service.impl.UserServiceImpl"></bean>
 
-    <dubbo:provider timeout="30000" retries="0"/>
-    <!--<dubbo:provider timeout="30000" retries="0" filter="lock"/>-->
-
-    <dubbo:service interface="com.it.service.UserService" ref="userService"/>
-    <dubbo:service interface="com.it.service.CauseService" ref="causeService"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.it.service.UserService"
+                   ref="userService" protocol="dubbo" timeout="40000" retries="0"/>
+                   
+    <!-- <dubbo:service interface="com.it.service.CauseService" ref="causeServiceImpl" protocol="dubbo"/> -->
     
 </beans>

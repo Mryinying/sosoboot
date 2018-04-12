@@ -1,0 +1,12 @@
+#parse("./templates/layout/frame.vm")
+				<div class="content col-lg-9" style="background:rgb(220,220,111);">
+					#if($!name=="张三")亲爱的$!name，你好！  </br>#end
+					    $!message  </br>
+					祝：开心！  </br>
+					$!{time}  </br>
+				</div>
+##frame的尾标签
+		     </div>
+		</div>
+	</body>
+</html>

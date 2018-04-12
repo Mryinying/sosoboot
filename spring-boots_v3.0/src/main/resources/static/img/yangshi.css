@@ -1,0 +1,39 @@
+.dh {
+	FILTER: DropShadow(Color=#000000, OffX=1, OffY=1, Positive=5); COLOR: #ffffff; FONT-FAMILY: Verdana
+}
+.dh2 {
+	FILTER: DropShadow(Color=#ffffff, OffX=1, OffY=1, Positive=5); COLOR: #000000; FONT-FAMILY: Verdana
+}
+TABLE {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 20px; FONT-FAMILY: "??"; TEXT-DECORATION: none
+}
+BODY {
+	BACKGROUND-IMAGE: url(../images/index/bg.jpg); MARGIN: 0px
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "??"; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "??"; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #ff0000; FONT-FAMILY: "??"; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "??"; TEXT-DECORATION: none
+}
+.input1 {
+	BORDER-RIGHT: #267cad 1px solid; BORDER-TOP: #267cad 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #267cad 1px solid; BORDER-BOTTOM: #267cad 1px solid; FONT-FAMILY: "??"; BACKGROUND-COLOR: #ffffff; TEXT-DECORATION: none
+}
+.input2 {
+	BORDER-RIGHT: #358fc3 1px solid; BORDER-TOP: #358fc3 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #358fc3 1px solid; BORDER-BOTTOM: #358fc3 1px solid; FONT-FAMILY: "??"; BACKGROUND-COLOR: #e6f7ff; TEXT-DECORATION: none
+}
+.inputbg {
+	BORDER-RIGHT: #dadfe3 1px solid; BORDER-TOP: #dadfe3 1px solid; BACKGROUND-IMAGE: url(../images/index/input_bg.jpg); BORDER-LEFT: #dadfe3 1px solid; BORDER-BOTTOM: #dadfe3 1px solid; BACKGROUND-REPEAT: no-repeat
+}
+.newstitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #ff0000; FONT-FAMILY: "??"
+}
+.news {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "??"
+}

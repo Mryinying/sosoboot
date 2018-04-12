@@ -1,0 +1,40 @@
+
+<div class="menu col-lg-3">
+	<div class="nav-0 col-lg-12">
+	</div>
+    <div class="nav-1">
+		<p><h4 class="text-muted">学生模块</h4></p>
+		<ul class="nav nav-pills nav-stacked">
+			<li #if($tab=='a1') class="active" #end><a href="/stu/add?tab=a1">添加学生</a></li>
+			<li #if($tab=='a2') class="active" #end><a href="/stu/stuList?tab=a2">学生列表</a></li>
+			<li #if($tab=='a3') class="active" #end><a href="#">查找成绩</a></li>
+		</ul>
+	</div>
+	<div class="nav-4">
+		<p><h4 class="text-muted">教师模块</h4></p>
+		<ul class="nav nav-pills nav-stacked">
+			<li #if($tab=='t1') class="active" #end><a href="/tea/add?tab=t1">教师添加</a></li>
+			<li #if($tab=='t2') class="active" #end><a href="/tea/teaList?tab=t2">教师列表</a></li>
+			<li #if($tab=='t3') class="active" #end><a href="#">查找成绩</a></li>
+		</ul>
+	</div>
+	<div class="nav-2">
+		<p><h4 class="text-muted">课程管理</h4></p>
+		<ul class="nav nav-pills nav-stacked">
+			<li #if($tab=='b1') class="active" #end><a href="#">添加选修课程</a></li>
+			<li #if($tab=='b2') class="active" #end><a href="#">选修课程列表</a></li>
+			<li #if($tab=='b3') class="active" #end><a href="#">添加基础课程</a></li>
+			<li #if($tab=='b4') class="active" #end><a href="#">基础课程列表</a></li>
+			<li #if($tab=='b5') class="active" #end><a href="#">选课情况查询</a></li>
+			<li #if($tab=='b6') class="active" #end><a href="#">PHP</a></li>
+		</ul>
+	</div>
+	<div class="nav-3">
+		<p><h4 class="text-muted">个人信息管理</h4></p>
+		<ul class="nav nav-pills nav-stacked">
+			<li #if($tab=='c1') class="active" #end><a href="#">修改密码</a></li>
+			<li #if($tab=='c2') class="active" #end><a href="#">SVN</a></li>
+			<li #if($tab=='c3') class="active" #end><a href="#">iOS</a></li>
+		</ul>
+	</div>
+</div>

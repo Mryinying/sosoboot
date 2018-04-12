@@ -6,9 +6,8 @@
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="soso-site"/>
-
     <dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper}"/>
 
     <dubbo:reference id="userService" interface="com.it.service.UserService"/>
-    <dubbo:reference id="causeService" interface="com.it.service.CauseService"/>
+    <!-- <dubbo:reference id="causeService" interface="com.it.service.CauseService"/> -->
 </beans>
