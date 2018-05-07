@@ -16,7 +16,7 @@
             <artifactId>dubbo</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
             <optional>true</optional>
@@ -25,7 +25,7 @@
             <groupId>org.jooq</groupId>
             <artifactId>jooq-codegen</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
