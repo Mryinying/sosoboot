@@ -1,23 +1,21 @@
 package com.it.service.impl;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.it.jooq.generated.tables.daos.UserDao;
-import com.it.jooq.generated.tables.pojos.User;
-import com.it.service.UserService;
+import com.it.api.service.UserService;
+import com.it.service.pojos.User;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService{
 
-	@Autowired
-	private UserDao userDao;
           
 	@Override
 	public User findById(Integer id) {
-//		return null;
-		return userDao.findById(id);
+		User user = new User();
+		user.setName("zhangsan");
+		user.setUid(id);
+		return user;
 	}
 	
 }

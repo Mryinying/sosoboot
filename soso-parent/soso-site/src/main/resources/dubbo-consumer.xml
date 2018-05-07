@@ -8,6 +8,6 @@
     <dubbo:application name="soso-site"/>
     <dubbo:registry protocol="zookeeper" address="${dubbo.zookeeper}"/>
 
-    <dubbo:reference id="userService" interface="com.it.service.UserService"/>
+    <dubbo:reference id="userServiceImpl" interface="com.it.api.service.UserService"  check="false" />
     <!-- <dubbo:reference id="causeService" interface="com.it.service.CauseService"/> -->
 </beans>

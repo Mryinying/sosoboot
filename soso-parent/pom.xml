@@ -14,11 +14,12 @@
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <dubbo.version>2.4.9</dubbo.version>
+        <dubbo.version>2.6.1</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
         <guava.version>19.0</guava.version>
         <jsr305.version>3.0.1</jsr305.version>
-        <curator.version>2.12.0</curator.version>
+        <curator.version>4.0.0</curator.version>
+        <zookeeper.version>3.5.3-beta</zookeeper.version>
         <!-- <spring-cloud.version>Edgware.RELEASE</spring-cloud.version> -->
     </properties>
     <dependencyManagement>
@@ -36,8 +37,17 @@
 	                    <groupId>org.jboss.netty</groupId>
 	                    <artifactId>netty</artifactId>
 	                </exclusion>
+	                <exclusion>
+	                    <groupId>org.apache.zookeeper</groupId>
+	                    <artifactId>zookeeper</artifactId>
+	                </exclusion>
 	            </exclusions>
 	    	</dependency>
+		   	<dependency>
+		        <groupId>org.apache.zookeeper</groupId>
+		        <artifactId>zookeeper</artifactId>
+		        <version>${zookeeper.version}</version>
+		    </dependency>
 	    	<dependency>
                 <groupId>com.101tec</groupId>
                 <artifactId>zkclient</artifactId>

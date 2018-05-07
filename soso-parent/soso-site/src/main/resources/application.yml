@@ -1,5 +1,8 @@
+server:
+  port: 8081
+
 dubbo:
-  zookeeper: 192.168.203.130:2181
+  zookeeper: 192.168.203.132:2181
   
 logging:
   level:

@@ -36,7 +36,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
         </dependency>
-
+		<dependency>
+	        <groupId>org.apache.zookeeper</groupId>
+	        <artifactId>zookeeper</artifactId>
+	    </dependency>
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
@@ -57,10 +60,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jooq</artifactId>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -122,10 +125,10 @@
         	<artifactId>curator-recipes</artifactId>
         </dependency>
   <!--数据库schema代码生成器 -->
-	<dependency>
+	<!-- <dependency>
 	    <groupId>org.jooq</groupId>
 	    <artifactId>jooq-codegen</artifactId>
-	</dependency>
+	</dependency> -->
      <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
@@ -147,14 +150,14 @@
 		</exclusions>
 	</dependency>
   </dependencies>
-  <build>
+  <!-- <build>
   	<plugins>
-  		<!--数据库代码生成的插件 -->
+  		数据库代码生成的插件
 		<plugin>
-		    <!-- Specify the maven code generator plugin -->
+		    Specify the maven code generator plugin
 		    <groupId>org.jooq</groupId>
 		    <artifactId>jooq-codegen-maven</artifactId>
-		    <!-- The plugin should hook into the generate goal -->
+		    The plugin should hook into the generate goal
 		    <executions>
 		        <execution>
 		            <goals>
@@ -163,14 +166,14 @@
 		        </execution>
 		    </executions>
 		    <configuration>
-		        <!-- JDBC connection parameters -->
+		        JDBC connection parameters
 		        <jdbc>
 		            <driver>com.mysql.jdbc.Driver</driver>
 		            <url>${db.url}</url>
 		            <user>${db.username}</user>
 		            <password>${db.password}</password>
 		        </jdbc>
-		        <!-- Generator parameters -->
+		        Generator parameters
 		        <generator>
 		            <database>
 		                <name>org.jooq.util.mysql.MySQLDatabase</name>
@@ -216,6 +219,6 @@
 		    </configuration>
 		</plugin>
   	</plugins>
-  </build>
+  </build> -->
   
 </project>
