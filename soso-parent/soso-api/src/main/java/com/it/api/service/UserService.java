@@ -1,6 +1,6 @@
-package com.it.service;
+package com.it.api.service;
 
-import com.it.jooq.generated.tables.pojos.User;
+import com.it.service.pojos.User;
 
 public interface UserService {
 	

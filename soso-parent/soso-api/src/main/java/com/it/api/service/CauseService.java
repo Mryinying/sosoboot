@@ -1,8 +1,9 @@
-package com.it.service;
+package com.it.api.service;
 
 import java.util.List;
 
-import com.it.jooq.generated.tables.pojos.DefinedCause;
+import com.it.service.pojos.DefinedCause;
+
 
 public interface CauseService {
 
