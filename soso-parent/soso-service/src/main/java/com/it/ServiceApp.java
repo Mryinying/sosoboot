@@ -1,10 +1,7 @@
 package com.it;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 public class ServiceApp {
@@ -13,4 +10,5 @@ public class ServiceApp {
     {
 		SpringApplication.run(ServiceApp.class, args);
     }
+
 }

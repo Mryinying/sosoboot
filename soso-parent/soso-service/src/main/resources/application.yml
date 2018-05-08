@@ -20,5 +20,5 @@ spring:
     idleTimeout : 30000
     pool-prepared-statements : true
     max-open-prepared-statements : 250
-#  jooq:
-#    sql-dialect: MYSQL
+  jooq:
+    sql-dialect: MYSQL
