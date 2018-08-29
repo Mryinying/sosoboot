@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.it.jooq.generated.tables.pojos.TeacherInfo;
+import com.it.jooq.model.TUserRole;
 import com.it.service.TeaService;
 
 @Controller
@@ -35,6 +36,7 @@ public class TeaManageController {
 
 	@PostMapping("/insertTea")
 	public String insertStu(TeacherInfo info) {
+		info.setId(123).setPassword("da asdasd ").setTeaSex(0);
 		teaService.insertTea(info);
 		return "redirect:/tea/teaList?tab=a2";
 	}

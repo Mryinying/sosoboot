@@ -13,3 +13,10 @@ spring:
     max-open-prepared-statements : 250
   jooq:
     sql-dialect: MYSQL
+  output:
+    ansi:
+      enabled: DETECT
+      
+logging:
+  level: 
+    com.it: debug

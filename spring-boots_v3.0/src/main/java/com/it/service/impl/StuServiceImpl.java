@@ -9,7 +9,10 @@ import com.it.jooq.generated.tables.daos.StudentInfoDao;
 import com.it.jooq.generated.tables.pojos.StudentInfo;
 import com.it.service.StuService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class StuServiceImpl implements StuService{
 	
 	@Autowired
@@ -17,6 +20,7 @@ public class StuServiceImpl implements StuService{
 
 	@Override
 	public void insertStu(StudentInfo info) {
+		log.debug("enter insertStu  info = {}",info);
 		studentInfoDao.insert(info);
 	}
 

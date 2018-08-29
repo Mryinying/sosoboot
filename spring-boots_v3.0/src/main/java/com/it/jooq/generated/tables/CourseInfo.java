@@ -36,7 +36,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CourseInfo extends TableImpl<CourseInfoRecord> {
 
-    private static final long serialVersionUID = -87609385;
+    private static final long serialVersionUID = -849364457;
 
     /**
      * The reference instance of <code>test.course_info</code>
@@ -85,6 +85,11 @@ public class CourseInfo extends TableImpl<CourseInfoRecord> {
      * The column <code>test.course_info.classroom</code>.
      */
     public final TableField<CourseInfoRecord, String> CLASSROOM = createField("classroom", org.jooq.impl.SQLDataType.VARCHAR.length(50).nullable(false), this, "");
+
+    /**
+     * The column <code>test.course_info.type</code>.
+     */
+    public final TableField<CourseInfoRecord, Integer> TYPE = createField("type", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>test.course_info</code> table reference
