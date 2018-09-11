@@ -26,6 +26,7 @@ public class StuServiceImpl implements StuService{
 
 	@Override
 	public List<StudentInfo> fidStuList() {
+		log.debug("enter findStuList ======================");
 		List<StudentInfo> list = studentInfoDao.findAll();
 		return list;
 	}

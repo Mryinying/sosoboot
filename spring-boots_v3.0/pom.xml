@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.it</groupId>
-  <artifactId>spring-boots</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>com.it</groupId>
+	<artifactId>spring-boots</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>spring-boots</name>
-  <url>http://maven.apache.org</url>
-  
-  	<parent>
+	<name>spring-boots</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -29,6 +29,8 @@
 		<db.username>root</db.username>
 		<db.password>Tiger</db.password>
 		<db.schema>test</db.schema>
+		<test.port>8888</test.port>
+		<dev.port>8080</dev.port>
 	</properties>
 
 	<dependencies>
@@ -38,8 +40,8 @@
 		</dependency>
 		<!--JDBC连接池 -->
 		<dependency>
-		    <groupId>com.zaxxer</groupId>
-		    <artifactId>HikariCP</artifactId>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,50 +49,50 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- velocity -->
-		<dependency>    
-		    <groupId>org.springframework.boot</groupId>  
-		    <artifactId>spring-boot-starter-velocity</artifactId>  
-		</dependency>  
 		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-web</artifactId>
-	    </dependency>
-	     <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-devtools</artifactId>
-	        <optional>true</optional>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
 		</dependency>
 		<dependency>
-		      <groupId>junit</groupId>
-		      <artifactId>junit</artifactId>
-		      <scope>test</scope>
-		    </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.13</version>
 		</dependency>
 		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-web</artifactId>
-	    </dependency>
-	    <!--数据库schema代码生成器 -->
-		<dependency>
-		    <groupId>org.jooq</groupId>
-		    <artifactId>jooq-codegen</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-	     <dependency>
-	        <groupId>mysql</groupId>
-	        <artifactId>mysql-connector-java</artifactId>
-	    </dependency>
-	     <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-devtools</artifactId>
-	        <optional>true</optional>
+		<!--数据库schema代码生成器 -->
+		<dependency>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq-codegen</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -104,107 +106,160 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!--swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.5.0</version>
+		</dependency>
 	</dependencies>
-	
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<pom.port>${dev.port}</pom.port>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<pom.port>${test.port}</pom.port>
+			</properties>
+		</profile>
+	</profiles>
+
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+				<!-- 加入此属性，才会进行过滤 -->
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
-		<plugin>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-maven-plugin</artifactId>
-			<configuration>
-	                <fork>true</fork>
-	        </configuration>
-	        <!-- springloaded 热部署 hot deploy-->
-			<dependencies>
-				
-				<dependency>
-					<groupId>org.springframework</groupId>
-					<artifactId>springloaded</artifactId>
-					<version>1.2.4.RELEASE</version>
-				</dependency>
-			</dependencies>
-			<executions>
-				<execution>
-					<goals>
-						<goal>repackage</goal>
-					</goals>
-					<configuration>
-						<classifier>exec</classifier>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
-		
-		<!--数据库代码生成的插件 -->
-		<!--数据库代码生成的插件 -->
-		<plugin>
-		    <!-- Specify the maven code generator plugin -->
-		    <groupId>org.jooq</groupId>
-		    <artifactId>jooq-codegen-maven</artifactId>
-		    <!-- The plugin should hook into the generate goal -->
-		    <executions>
-		        <execution>
-		            <goals>
-		                <goal>generate</goal>
-		            </goals>
-		        </execution>
-		    </executions>
-		    <configuration>
-		        <!-- JDBC connection parameters -->
-		        <jdbc>
-		            <driver>com.mysql.jdbc.Driver</driver>
-		            <url>${db.url}</url>
-		            <user>${db.username}</user>
-		            <password>${db.password}</password>
-		        </jdbc>
-		        <!-- Generator parameters -->
-		        <generator>
-		            <database>
-		                <name>org.jooq.util.mysql.MySQLDatabase</name>
-		                <includes>.*</includes>
-		                <inputSchema>${db.schema}</inputSchema>
-		                <unsignedTypes>false</unsignedTypes>
-		                <customTypes>
-                            <customType>
-                                <name>timestamp2DateConverter</name>
-                                <type>java.util.Date</type>
-                                <converter>com.it.jooq.Timestamp2DateConverter</converter>
-                            </customType>
-                            <customType>
-                                <name>byte2IntegerConverter</name>
-                                <type>java.lang.Integer</type>
-                                <converter>com.it.jooq.Byte2IntegerConverter</converter>
-                            </customType>
-                         </customTypes>
-                         <forcedTypes>
-                             <forcedType>
-                                 <name>timestamp2DateConverter</name>
-                                 <types>DATETIME|TIMESTAMP</types>
-                             </forcedType>
-                             <forcedType>
-                                 <name>byte2IntegerConverter</name>
-                                 <types>TINYINT</types>
-                             </forcedType>
-                         </forcedTypes>
-		            </database>
-		            <generate>
-                            <fluentSetters>true</fluentSetters>
-                            <pojos>true</pojos>
-                            <pojosToString>true</pojosToString>
-                            <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
-                            <daos>true</daos>
-                            <springAnnotations>true</springAnnotations>
-                        </generate>
-		            <target>
-		                <packageName>com.it.jooq.generated</packageName>
-		                <directory>src/main/java</directory>
-		            </target>
-		        </generator>
-		    </configuration>
-		</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<!-- 需要加入，因为maven默认的是${},而springbooot 默认会把此替换成@{} -->
+					<useDefaultDelimiters>true</useDefaultDelimiters>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+				<!-- springloaded 热部署 hot deploy -->
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>springloaded</artifactId>
+						<version>1.2.4.RELEASE</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!--数据库代码生成的插件 -->
+			<!--数据库代码生成的插件 -->
+			<plugin>
+				<!-- Specify the maven code generator plugin -->
+				<groupId>org.jooq</groupId>
+				<artifactId>jooq-codegen-maven</artifactId>
+				<!-- The plugin should hook into the generate goal -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- JDBC connection parameters -->
+					<jdbc>
+						<driver>com.mysql.jdbc.Driver</driver>
+						<url>${db.url}</url>
+						<user>${db.username}</user>
+						<password>${db.password}</password>
+					</jdbc>
+					<!-- Generator parameters -->
+					<generator>
+						<database>
+							<name>org.jooq.util.mysql.MySQLDatabase</name>
+							<includes>.*</includes>
+							<inputSchema>${db.schema}</inputSchema>
+							<unsignedTypes>false</unsignedTypes>
+							<customTypes>
+								<customType>
+									<name>timestamp2DateConverter</name>
+									<type>java.util.Date</type>
+									<converter>com.it.jooq.Timestamp2DateConverter</converter>
+								</customType>
+								<customType>
+									<name>byte2IntegerConverter</name>
+									<type>java.lang.Integer</type>
+									<converter>com.it.jooq.Byte2IntegerConverter</converter>
+								</customType>
+							</customTypes>
+							<forcedTypes>
+								<forcedType>
+									<name>timestamp2DateConverter</name>
+									<types>DATETIME|TIMESTAMP</types>
+								</forcedType>
+								<forcedType>
+									<name>byte2IntegerConverter</name>
+									<types>TINYINT</types>
+								</forcedType>
+							</forcedTypes>
+						</database>
+						<generate>
+							<fluentSetters>true</fluentSetters>
+							<pojos>true</pojos>
+							<pojosToString>true</pojosToString>
+							<pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
+							<daos>true</daos>
+							<springAnnotations>true</springAnnotations>
+						</generate>
+						<target>
+							<packageName>com.it.jooq.generated</packageName>
+							<directory>src/main/java</directory>
+						</target>
+					</generator>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
