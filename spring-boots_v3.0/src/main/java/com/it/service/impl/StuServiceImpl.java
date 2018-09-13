@@ -31,4 +31,10 @@ public class StuServiceImpl implements StuService{
 		return list;
 	}
 
+	@Override
+	public StudentInfo findById(Integer id) {
+		// TODO Auto-generated method stub
+		return studentInfoDao.findById(id);
+	}
+
 }

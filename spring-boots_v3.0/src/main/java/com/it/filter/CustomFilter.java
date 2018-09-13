@@ -31,6 +31,7 @@ public class CustomFilter implements Filter{
         HttpServletRequest request2 = (HttpServletRequest)request;
         System.out.println("getRequestURL: "+request2.getRequestURL());  
         System.out.println("getRequestURI: "+request2.getRequestURI());  
+        String parameter = request.getParameter("id");
 //        System.out.println("getQueryString: "+request2.getQueryString());  
 //        System.out.println("getRemoteAddr: "+request.getRemoteAddr());  
 //        System.out.println("getRemoteHost: "+request.getRemoteHost());  

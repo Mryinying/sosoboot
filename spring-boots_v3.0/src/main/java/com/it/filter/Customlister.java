@@ -22,7 +22,6 @@ public class Customlister implements ServletRequestListener{
         log.info("监听器：初始化");
         HttpServletRequest request = (HttpServletRequest)sre.getServletRequest();
         System.out.println("getRequestURL: "+request.getRequestURL());  
-        System.out.println("getRequestURI: "+request.getRequestURI());  
 //        System.out.println("getQueryString: "+request.getQueryString());  
 //        System.out.println("getRemoteAddr: "+request.getRemoteAddr());  
 //        System.out.println("getRemoteHost: "+request.getRemoteHost());  

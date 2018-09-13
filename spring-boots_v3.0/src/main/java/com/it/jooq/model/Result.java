@@ -1,5 +1,6 @@
 package com.it.jooq.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import com.it.constants.Constants;
@@ -7,8 +8,12 @@ import com.it.constants.Constants;
 /**
  * 返回值包装类
  */
-public class Result {
+public class Result implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -754380652123627456L;
 	private int code;
 	private String msg = "";
 	private Object data = new Object();

@@ -1,11 +1,15 @@
 package com.it.controllers;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +40,7 @@ public class StuManageController {
 		model.addAttribute("tab", tab);
 	}
 	
-	@RequestMapping("/add")  
+	@GetMapping("/add")  
 	@ApiOperation(value="学生新增页面")
     public String hi(Model model) throws CommonException {  
         return "stu/addStu"; //自动寻找resources/templates中名字为welcome.vm的文件作为模板，拼装后返回  
@@ -60,8 +64,27 @@ public class StuManageController {
 	@GetMapping("/stuListAjax")
 	@ResponseBody
 	@ApiOperation(value="查询所有")
+	@Cacheable(value="W",key="#root.targetClass")
 	public Result fidStuListAjax() {
 		List<StudentInfo> stuList = stuService.fidStuList();
 		return Result.success("stuList", stuList);
+	}
+	
+	@PostMapping(value="/fidStu")
+	@ResponseBody
+	@ApiOperation(value="查询stu")
+	@ApiImplicitParam(name="id",value="查询stu",required=true)
+//	@Cacheable(value="W",key="#id")
+	@CacheEvict(value = "user", key = "#id", condition = "#root.target.canCache() and #root.caches[0].get(#user.id).get().username ne #user.username", beforeInvocation = true)
+	public Result fidStuById(Integer id,HttpServletRequest request) throws IOException {
+		
+		BufferedReader reader = request.getReader();
+		String str,buffer = null;
+		if((str = reader.readLine()) != null) {
+			buffer += reader.readLine();
+		}
+		
+		StudentInfo stu = stuService.findById(id);
+		return Result.success("stuList", stu);
 	}
 }

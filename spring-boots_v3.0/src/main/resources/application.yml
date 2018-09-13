@@ -14,15 +14,16 @@ spring:
     idleTimeout : 30000
     pool-prepared-statements : true
     max-open-prepared-statements : 250
-#  velocity:
-#    resource-loader-path: classpath:/public/views/
-#    toolbox-config-location: /toolbox.xml
-#    cache: false
-#    expose-request-attributes: true
-#    expose-session-attributes: true
-#    request-context-attribute: request
-#    properties:
-#      userdirective: com.baidu.fis.velocity.directive.Html, com.baidu.fis.velocity.directive.Head, com.baidu.fis.velocity.directive.Body, com.baidu.fis.velocity.directive.Require, com.baidu.fis.velocity.directive.Script, com.baidu.fis.velocity.directive.Style, com.baidu.fis.velocity.directive.Uri, com.baidu.fis.velocity.directive.Widget, com.baidu.fis.velocity.directive.Block, com.baidu.fis.velocity.directive.Extends
+  redis: 
+    database: 1
+    hostName: 192.168.203.132
+    password: 
+    port: 6379
+    timeout: 0  
+    max-active: 8  
+    max-wait: -1  
+    max-idle: 8  
+    min-idle: 0
   jooq:
     sql-dialect: MYSQL
   output:
@@ -30,7 +31,14 @@ spring:
       enabled: DETECT
   profiles:
     active: dev
-      
+  rabbitmq:
+    host: 192.168.203.132
+    port: 5672
+    username: mryinying
+    password: 654321
+    publisher-confirms: true
+    virtual-host: /
+
 logging:
   level: 
     com.it: debug
@@ -39,4 +47,5 @@ swagger:
   enabled: true
 # 指定环境为dev
 #spring.profiles.active=dev
+#    spring.output.ansi.enabled
 

@@ -12,5 +12,7 @@ public interface StuService {
 	void insertStu(StudentInfo info);
 	
 	List<StudentInfo> fidStuList();
+	
+	public abstract StudentInfo findById(Integer id);
 
 }

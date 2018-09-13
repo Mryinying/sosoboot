@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -19,6 +21,8 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
  */
 @SpringBootApplication
 @ServletComponentScan
+@EnableScheduling  //通过@EnableScheduling注解开启对计划任务的支持 
+@EnableAsync //让@Async注解能够生效
 public class App{
 	//第一种使用第三方json解析框架
 	//重写
