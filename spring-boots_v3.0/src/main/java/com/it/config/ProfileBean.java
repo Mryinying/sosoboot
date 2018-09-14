@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Profile;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Profile("dev")  
-//@Profile({"dev","test"}) //支持数组 
+//@Profile("dev")  
+@Profile("test") //支持数组 
 @Configuration
 @Slf4j
 public class ProfileBean {

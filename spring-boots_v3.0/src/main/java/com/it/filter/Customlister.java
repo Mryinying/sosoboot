@@ -13,15 +13,15 @@ public class Customlister implements ServletRequestListener{
 
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
-        log.info("监听器：销毁");
+        log.debug("Listener：Destroyed");
     }
 
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
     	
-        log.info("监听器：初始化");
+        log.debug("Listener：Initialized");
         HttpServletRequest request = (HttpServletRequest)sre.getServletRequest();
-        System.out.println("getRequestURL: "+request.getRequestURL());  
+        log.debug("getRequestURL: "+request.getRequestURL());  
 //        System.out.println("getQueryString: "+request.getQueryString());  
 //        System.out.println("getRemoteAddr: "+request.getRemoteAddr());  
 //        System.out.println("getRemoteHost: "+request.getRemoteHost());  

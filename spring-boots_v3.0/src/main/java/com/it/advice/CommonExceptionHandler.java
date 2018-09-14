@@ -13,13 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import lombok.extern.slf4j.Slf4j;
 
 @ControllerAdvice
-@Slf4j
 public class CommonExceptionHandler {
 	
 	
 	public static final String DEFAULT_ERROR_VIEW = "error";
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = CommonException.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
         ModelAndView mav = new ModelAndView();
         Map<String,Object> result = new HashMap<String,Object>();
@@ -44,19 +43,19 @@ public class CommonExceptionHandler {
 //        return result; 
 //    }
 //    
-    /**
-     * 拦截 CommonException 的异常
-     * @param ex
-     * @return
-     */
-    @ExceptionHandler(CommonException.class)
-    @ResponseBody
-    public Map<String,Object> exceptionHandler(CommonException ex){
-        log.info("CommonException：{}({})",ex.getMessage(), ex.getCode());
-        Map<String,Object> result = new HashMap<String,Object>();
-        result.put("respCode", ex.getCode());
-        result.put("respMsg", ex.getMessage());
-        return result; 
-    }
+//    /**
+//     * 拦截 CommonException 的异常
+//     * @param ex
+//     * @return
+//     */
+//    @ExceptionHandler(CommonException.class)
+//    @ResponseBody
+//    public Map<String,Object> exceptionHandler(CommonException ex){
+//        log.info("CommonException：{}({})",ex.getMessage(), ex.getCode());
+//        Map<String,Object> result = new HashMap<String,Object>();
+//        result.put("respCode", ex.getCode());
+//        result.put("respMsg", ex.getMessage());
+//        return result; 
+//    }
 
 }

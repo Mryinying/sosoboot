@@ -1,14 +1,11 @@
 package com.it.controllers;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.it.advice.CommonException;
 import com.it.jooq.generated.tables.pojos.StudentInfo;
 import com.it.jooq.model.Result;
 import com.it.service.StuService;
@@ -42,7 +38,7 @@ public class StuManageController {
 	
 	@GetMapping("/add")  
 	@ApiOperation(value="学生新增页面")
-    public String hi(Model model) throws CommonException {  
+    public String hi(Model model) {  
         return "stu/addStu"; //自动寻找resources/templates中名字为welcome.vm的文件作为模板，拼装后返回  
     }  
 
@@ -74,15 +70,15 @@ public class StuManageController {
 	@ResponseBody
 	@ApiOperation(value="查询stu")
 	@ApiImplicitParam(name="id",value="查询stu",required=true)
-//	@Cacheable(value="W",key="#id")
-	@CacheEvict(value = "user", key = "#id", condition = "#root.target.canCache() and #root.caches[0].get(#user.id).get().username ne #user.username", beforeInvocation = true)
-	public Result fidStuById(Integer id,HttpServletRequest request) throws IOException {
+	@Cacheable(value="W",key="#id")
+//	@CacheEvict(value = "user", key = "#id", condition = "#root.target.canCache() and #root.caches[0].get(#user.id).get().username ne #user.username", beforeInvocation = true)
+	public Result fidStuById(Integer id,HttpServletRequest request){
 		
-		BufferedReader reader = request.getReader();
-		String str,buffer = null;
-		if((str = reader.readLine()) != null) {
-			buffer += reader.readLine();
-		}
+//		BufferedReader reader = request.getReader();
+//		String str,buffer = null;
+//		if((str = reader.readLine()) != null) {
+//			buffer += reader.readLine();
+//		}
 		
 		StudentInfo stu = stuService.findById(id);
 		return Result.success("stuList", stu);
